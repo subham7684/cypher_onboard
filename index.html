@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            background: #111827;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #f3f4f6;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .animated-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .code-snippet {
+            position: absolute;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 15px;
+            padding: 0;
+            background: none;
+            border: none;
+            color: rgba(156, 163, 175, 0.5);
+            white-space: nowrap;
+            animation: float-unique 18s infinite ease-in-out;
+            opacity: 0;
+            animation-fill-mode: forwards;
+            transition: all 0.3s ease;
+        }
+
+        .code-snippet:hover {
+            color: rgba(156, 163, 175, 0.7);
+        }
+
+        .code-snippet span {
+            color: rgba(139, 92, 246, 0.55);
+            font-weight: 500;
+        }
+
+        /* Carefully positioned snippets - left side */
+        .code-snippet.snippet-1 {
+            top: 15%;
+            left: 8%;
+            animation-delay: 0s;
+        }
+
+        .code-snippet.snippet-2 {
+            top: 38%;
+            left: 5%;
+            animation-delay: 2s;
+        }
+
+        .code-snippet.snippet-3 {
+            top: 68%;
+            left: 10%;
+            animation-delay: 4s;
+        }
+
+        /* Carefully positioned snippets - right side */
+        .code-snippet.snippet-4 {
+            top: 12%;
+            right: 7%;
+            animation-delay: 1s;
+        }
+
+        .code-snippet.snippet-5 {
+            top: 42%;
+            right: 6%;
+            animation-delay: 3s;
+        }
+
+        .code-snippet.snippet-6 {
+            top: 72%;
+            right: 9%;
+            animation-delay: 5s;
+        }
+
+        /* Top and bottom snippets */
+        .code-snippet.snippet-7 {
+            top: 8%;
+            left: 30%;
+            animation-delay: 6s;
+        }
+
+        .code-snippet.snippet-8 {
+            bottom: 8%;
+            right: 25%;
+            animation-delay: 7s;
+        }
+
+        /* Additional snippets */
+        .code-snippet.snippet-9 {
+            top: 25%;
+            left: 15%;
+            animation-delay: 8s;
+        }
+
+        .code-snippet.snippet-10 {
+            top: 55%;
+            right: 15%;
+            animation-delay: 9s;
+        }
+
+        .code-snippet.snippet-11 {
+            bottom: 15%;
+            left: 20%;
+            animation-delay: 10s;
+        }
+
+        /* Snippets over Coming Soon text */
+        .code-snippet.snippet-12 {
+            top: 48%;
+            left: 35%;
+            animation-delay: 11s;
+            z-index: 5;
+        }
+
+        .code-snippet.snippet-13 {
+            top: 52%;
+            right: 32%;
+            animation-delay: 12s;
+            z-index: 5;
+        }
+
+        @keyframes float-unique {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            25% {
+                transform: translateY(-20px) translateX(12px) rotate(1.5deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-12px) translateX(-15px) rotate(-1deg);
+                opacity: 1;
+            }
+            75% {
+                transform: translateY(-28px) translateX(10px) rotate(0.8deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .lottie-container {
+            width: 280px;
+            height: 280px;
+            margin: 0 auto 48px;
+        }
+
+        h1 {
+            font-size: 64px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 24px;
+            letter-spacing: -0.03em;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #9ca3af;
+            line-height: 1.6;
+            margin-bottom: 48px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 50px;
+            font-size: 14px;
+            color: #60a5fa;
+            margin-bottom: 48px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #60a5fa;
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.2);
+            }
+        }
+
+        .footer {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        @media (max-width: 1024px) {
+            .code-snippet.snippet-7,
+            .code-snippet.snippet-8,
+            .code-snippet.snippet-9,
+            .code-snippet.snippet-10,
+            .code-snippet.snippet-11,
+            .code-snippet.snippet-12,
+            .code-snippet.snippet-13 {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .code-snippet {
+                font-size: 13px;
+            }
+
+            .code-snippet.snippet-3,
+            .code-snippet.snippet-6 {
+                display: none;
+            }
+
+            .code-snippet.snippet-1 {
+                left: 4%;
+            }
+
+            .code-snippet.snippet-4 {
+                right: 4%;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .lottie-container {
+                width: 220px;
+                height: 220px;
+            }
+
+            h1 {
+                font-size: 48px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+            }
+
+            .code-snippet {
+                font-size: 11px;
+            }
+
+            .code-snippet.snippet-2,
+            .code-snippet.snippet-5 {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg">
+        <div class="code-snippet snippet-1">function <span>solve</span>(arr)</div>
+        <div class="code-snippet snippet-2">const <span>result</span> = []</div>
+        <div class="code-snippet snippet-3">if (<span>left</span> &lt; right)</div>
+        <div class="code-snippet snippet-4">return <span>count</span></div>
+        <div class="code-snippet snippet-5">for (let <span>i</span> = 0; i &lt; n)</div>
+        <div class="code-snippet snippet-6">while (<span>queue</span>.length)</div>
+        <div class="code-snippet snippet-7">let <span>max</span> = arr[0]</div>
+        <div class="code-snippet snippet-8">map.set(<span>key</span>, value)</div>
+        <div class="code-snippet snippet-9">array.sort((<span>a, b</span>) =&gt; a - b)</div>
+        <div class="code-snippet snippet-10">const <span>sum</span> = nums.reduce()</div>
+        <div class="code-snippet snippet-11">visited[<span>node</span>] = true</div>
+        <div class="code-snippet snippet-12">depth<span>++</span></div>
+        <div class="code-snippet snippet-13">stack.push(<span>val</span>)</div>
+    </div>
+
+    <div class="container">
+      <h1>Coming Soon</h1>
+      <p class="subtitle">Something exciting is on its way.</p>
+        <div class="lottie-container" id="lottie-animation"></div>
+        <div class="status-badge">
+            <span class="status-dot"></span>
+            <span>In Development</span>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 All rights reserved</p>
+        </div>
+    </div>
+
+    <script>
+        lottie.loadAnimation({
+            container: document.getElementById('lottie-animation'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'https://lottie.host/4c5e5d8a-6e0e-4b5f-9e6f-2b3e3d5e6f7a/8GyHBPzKVf.json'
+        });
+    </script>
+</body>
+</html>
